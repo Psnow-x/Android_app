@@ -1,0 +1,19 @@
+
+.title{
+			width: 100;height: 50px;text-align: center;
+		}			
+		.title img{vertical-align:middle}
+		.title input{
+    border: 1px solid #ffffff;
+    width: 450px;
+    padding-left: 30px;
+    height: 28px;
+    border-radius: 7px;
+    background: url(../img/icon-search.png) no-repeat 10px center/16px #ffffff;
+}
+#div1{text-align: center;width: px;height: 50px;}
+.div2{display: inline-block;border: solid red px;padding-left: 5px;padding-right: 5px;margin-left: 5px;margin-right: 5px;
+					background-color: ; border-radius: 7px}
+					.div2:hover {
+				background-color: #FF0000;
+			}

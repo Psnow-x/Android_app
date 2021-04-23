@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css" />
+		<link rel="stylesheet" href="css/icons-extra.css"/>
+		<link rel="stylesheet" href="css/test.css" />
+		<link rel="stylesheet" type="text/css" href="css/biquge.css"/>
+		<link rel="stylesheet" type="text/css" href="css/lun.css"/>
+		<script type="text/javascript" src="js/mui.min.js" ></script>
+		<script type="text/javascript" src="js/jquery.min.js" ></script>
+		<script type="text/javascript" src="js/template.js" ></script>
+		<title></title>
+		<style>
+body{
+		background-color: #FFFFFF;
+		}
+		
+		</style>
+	</head>
+	<body>
+		
+		<script id="booklist" type="text/html">
+		<% for(var i=0; i < data.length; i++){
+					var item = data[i];%>
+	<li class="mui-table-view-cell"><a href="" class="mui-navigate-right"><%=item%></a></li>
+		<% } %>
+ </script>
+		
+		<script>
+function loadJson(url,fn){
+	if(typeof(situ)=='undefined'){
+		$.get(url,{},function(data){
+			fn(data)
+		},"json");
+	}else{
+		var json=situ.loadJson(url);
+		var data=eval("("+json+")");
+		fn(data)
+	}
+}
+
+			$(function(){
+
+				loadJson("data/booklist.json",function(data){
+					var booklist =  document.getElementById('booklist').innerHTML;
+		 			 var myHtml = miniTpl(booklist, data);
+		 			 $(".book").append($(myHtml));
+				})
+
+
+			})
+			
+		</script>
+		<div style="padding-bottom: 10%;" id="tabbar" class="mui-control-content mui-active">
+		<div class="title">
+			<a href="lon.html" style="text-decoration: none;color: #000000" style="position: absolute;s" >登录</a>
+		<input style="width: 70%;background-color: #f7f7f7;" type="search" placeholder="书名/作者/关键字">
+		<a href="#" style="text-decoration: none;color: #000000"  >
+			<span class="mui-icon-extra mui-icon-extra-cart"></span>
+		</a>
+		</div>
+		
+		<div id="div1">
+	<div class="div2">
+		<a href="tujiina.html"style="text-decoration: none;color: #000000">推荐</a>
+	</div>
+	<div class="div2">
+		<a href="chagnxiao.html"style="text-decoration: none;color: #000000">畅销</a>
+	</div>
+	<div class="div2">
+		<a href="rebang.html"style="text-decoration: none;color: #000000">热榜</a>
+	</div>
+	<div class="div2">
+		<a href="mingzhu.html"style="text-decoration: none;color: #000000">名著</a>
+	</div>
+   </div>
+  
+   	 <div style="height: 5%;">
+   	 <ul class="slides">
+        <input type="radio" id="control-1" name="control" checked>
+        <input type="radio" id="control-2" name="control">
+        <input type="radio" id="control-3" name="control">
+       
+        
+        
+        <div  class="mui-slider">
+  <div class="mui-slider-group mui-slider-loop">
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#">
+    	<img  style="height:100%;width:33%;margin-left: 35%;" src="img/siteng.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#">
+    	<img  style="height:100%;width:33%;margin-left: 35%;" src="img/daqindiguo.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#">
+    	<img  style="height:110%;width:33%;margin-left: 35%;" src="img/bangjiayouxi.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#">
+    	<img  style="height:100%;width:33%;margin-left: 35%;" src="img/qingyunian.jpg" /></a></div>
+    <div class="mui-slider-item"><a href="#">
+    	<img  style="height:100%;width:33%;margin-left: 35%;" src="img/renshijian.jpg" /></a></div>
+    <!--支持循环，需要重复图片节点-->
+    <div class="mui-slider-item mui-slider-item-duplicate"><a href="#"><img src="" /></a></div>
+  </div>
+</div>
+        <!--
+        <div class="navigator slide-1">
+          <label for="control-3">
+            <i class="fas fa-chevron-left"></i>
+          </label>
+          <label for="control-2">
+            <i class="fas fa-chevron-right"></i>
+          </label>
+        </div>
+        
+        <div class="navigator slide-2">
+          <label for="control-1">
+            <i class="fas fa-chevron-left"></i>
+          </label>
+          <label for="control-3">
+            <i class="fas fa-chevron-right"></i>
+          </label>
+        </div>
+        
+        <div class="navigator slide-3">
+          <label for="control-2">
+            <i class="fas fa-chevron-left"></i>
+          </label>
+          <label for="control-1">
+            <i class="fas fa-chevron-right"></i>
+          </label>
+        </div>
+        
+        
+        <li class="slide">
+        	<img  src="img/b1.jpg" />
+        </li>
+        <li class="slide">
+        	<img src="img/b3.jpg"/>
+        </li>
+        <li class="slide">
+        	<img src="img/b4.jpg"/>
+        </li>
+        
+        <div class="controls-visible">
+          <label for="control-1"></label>
+          <label for="control-2"></label>
+          <label for="control-3"></label>
+        </div>-->
+      </ul>
+      </div>
+ 
+    <div class="tuijian">
+			<h2 class="cat"><em></em>每周新书</h2>
+				<ul class="hot-con">
+					<li>
+						<a href="jiakong/qingyunian">
+							<div>
+								<img src="img/qingyunian.jpg">
+							</div>
+							<h3>庆余年</h3>
+							<p class="common-ellipsis">猫腻</p>
+						</a>
+					</li>
+					<li>
+						<a href="xuanhuan/siteng">
+							<div>
+								<img src="img/siteng.jpg"></div>
+							<h3>司藤</h3>
+							<p class="common-ellipsis">尾鱼</p>
+						</a>
+					</li>
+					<li>
+						<a href="lishi/daqindiguo">
+							<div>
+								<img src="img/daqindiguo.jpg">
+							</div>
+							<h3>大秦帝国</h3>
+							<p class="common-ellipsis">孙皓晖</p>
+						</a>
+					</li>
+					<li>
+						<a href="/xiandai/renshijian">
+							<div>
+								<img src="img/renshijian.jpg">
+							</div>
+							<h3>人世间</h3>
+							<p class="common-ellipsis">梁晓声</p>
+						</a>
+					</li>
+					<li>
+						<a href="wangluo/douluodalu">
+							<div>
+								<img src="img/douluodalu.jpg">
+							</div>
+							<h3>斗罗大陆</h3>
+							<p class="common-ellipsis">唐家三少</p>
+						</a>
+					</li>
+					<li>
+						<a href="zhentan/bangjiayouxi">
+							<div>
+								<img src="img/bangjiayouxi.jpg">
+							</div>
+							<h3>绑架游戏</h3>
+							<p class="common-ellipsis">东野圭吾</p>
+						</a>
+					</li>
+				</ul>
+		</div>
+
+<div class="clear"></div>
+</div>
+		</div>
+		
+		<nav class="mui-bar mui-bar-tab">
+			<a class="mui-tab-item mui-active" href="#tabbar">
+				<span class="mui-icon-extra mui-icon-extra-class"></span>
+				<span class="mui-tab-label">首页</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-chat">
+				<span class="mui-icon-extra mui-icon-extra-at"></span>
+				<span class="mui-tab-label">作者</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-contact">
+				<span class="mui-icon-extra mui-icon-extra-addpeople"></span>
+				<span class="mui-tab-label">书友</span>
+			</a>
+			<a class="mui-tab-item" href="#tabbar-with-map">
+				<span class="mui-icon-extra mui-icon-extra-peoples"></span>
+				<span class="mui-tab-label">我的</span>	
+			</a>
+		</nav>
+		</div>
+			<div style="padding-bottom: inherit;" id="tabbar-with-chat" class="mui-control-content">
+				<td class="pic">  <table width="95%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+        <td><table width="100%" border="0" align="center" cellpadding="5" cellspacing="0">
+        <tbody><tr>
+        <td width="70%"><span style=" font-size:32px; color:#FF0000; font-weight:bolder; padding:10px; text-align:left">莎士比亚</span></td>
+        <td width="30%"><div style="text-align:center; font-size:12px; line-height:30px; border:1px #F60 dotted;"> 
+            <a href="choiceupdate.php?cid=41462" class="zy_lj" rel="nofollow"><font color="red">我要修订完善该条目</font></a></div></td>
+        </tr>
+
+        </tbody></table>
+
+
+        </td>
+        </tr>
+                <tr>
+        <td>
+       <div style="float: left; margin:0 20px 10px 5px; display:inline"> <table width="100%">
+           <tbody><tr>
+             <td> <a href="/image/vote/20130409173444939260.jpg" class="jqzoom" rel="" title="" style="outline-style: none; text-decoration: none;">
+  <div class="zoomPad"><img src="img/sha.jpg" alt="莎士比亚" style="max-width:300px; max-height:300px;border: 1px solid #666;"><div class="zoomPup" style="display: none; top: 0px; left: 0px; width: 175px; height: 175px; position: absolute; border-width: 1px;"></div><div class="zoomWindow" style="position: absolute; display: none; z-index: 5001; left: 245px; top: 0px;">
+  	<div class="zoomWrapper" style="width: 300px;"><div class="zoomWrapperTitle" style="width: 100%; position: absolute; display: none;"></div><div class="zoomWrapperImage" style="width: 100%; height: 300px;">
+  		<img src="img/sha.jpg" style="position: absolute; border: 0px; display: block; left: -5000px; top: 0px;"></div></div></div><div class="zoomPreload" style="visibility: hidden; top: 126.5px; left: 67.5px; position: absolute;">Loading zoom</div></div></a>
+<script type="text/javascript">
+$(function() {
+  var options3 =
+            {
+                zoomWidth: 300,
+                zoomHeight: 300,
+                xOffset:10,
+                title: false,
+                lens:true
+            }
+ $(".jqzoom").jqzoom(options3);
+});
+</script></td>
+           </tr>
+           <tr>
+             <td align="center"></td>
+           </tr>
+         </tbody></table></div>
+
+  <p style=" color: #4444ff;">威廉·莎士比亚（William Shakespeare，1564年4月23日 --- 1616年4月23日 ），文艺复兴时期英国杰出的思想家、作家、戏剧家，诗人。他创作的大部分是诗剧，主要作品有《李尔王》《哈姆雷特》《奥赛罗》《罗密欧与朱丽叶》《威尼斯商人》等。他的作品是人文主义文学的杰出代表，在世界文学史上占有极重要的地位。</p>
+  <p> 威廉·莎士比亚（William Shakespeare，1564年4月23日 ---  1616年5月3日 ，1564年4月26日受洗礼。 ），文艺复兴时期英国杰出的戏剧家，诗人，是英国文学史和戏剧史上最杰出的作家。他不但创作了许多最催人泪下的悲剧，他的很多出喜剧也是在英国舞台上曾经上演过的所有戏剧中最引人发笑的。此外他还写过154首十四行诗，和几首长诗歌，这些诗歌不只是单纯的叙述，而能触及人类本性中最深层的部分，因此被很多人认为是英国文学史上的佳作。</p><p>
+莎士比亚作品目录：（莎剧中文译名从流传最广的朱生豪译本；） </p><p>
+悲剧</p><p>
+罗密欧与朱丽叶(Romeo and Juliet) </p><p>
+麦克白(Macbeth)又译：麦克白斯、麦克佩斯 </p><p>
+李尔王(King Lear) </p><p>
+哈姆雷特(Hamlet)又译：汉姆雷特、汉姆莱特 </p><p>
+奥赛罗(Othello)又译：奥瑟罗 </p><p>
+泰特斯·安特洛尼克斯(Titus Andronicus) </p><p>
+裘力斯·凯撒(Julius Caesar) </p><p>
+安东尼与克莉奥佩屈拉(Antony and Cleopatra) </p><p>
+科利奥兰纳斯(Coriolanus) </p><p>
+特洛埃勒斯与克蕾雪达(Troilus and Cressida) </p><p>
+雅典的泰门(Timon of Athens) </p><p>
+喜剧</p><p>
+错中错(The Comedy of Errors)又译：错中错喜剧、错误的喜剧 </p><p>
+终成眷属(All's Well That Ends Well)又译：如愿 </p><p>
+皆大欢喜(As You Like It) </p><p>
+仲夏夜之梦(A Midsummer Night's Dream) </p><p>
+无事生非(Much Ado About Nothing)又译：捕风捉影 </p><p>
+一报还一报(Measure for Measure)又译：请君入瓮、量罪记、将心比心 </p><p>
+暴风雨(The Tempest) </p><p>
+驯悍记(Taming of the Shrew) </p><p>
+第十二夜(Twelfth Night or What You Will) </p><p>
+威尼斯商人(The Merchant of Venice) </p><p>
+温莎的风流娘们(The Merry Wives of Windsor) </p><p>
+爱的徒劳(Love's Labour's Lost) </p><p>
+维洛那二绅士(The Two Gentlemen of Verona)又译：两贵亲 </p><p>
+泰尔亲王佩力克尔斯(Pericles Prince of Tyre) </p><p>
+辛白林(Cymbeline) </p><p>
+冬天的故事(The Winter's Tale) </p><p>
+历史剧</p><p>
+亨利四世，第一卷（Henry IV, part 1） </p><p>
+亨利四世，第二卷（Henry IV, part 2） </p><p>
+亨利五世（Henry V） </p><p>
+亨利六世，第一卷（Henry VI, part 1） </p><p>
+亨利六世，第二卷（Henry VI, part 2） </p><p>
+亨利六世，第三卷（Henry VI, part 3） </p><p>
+亨利八世（Henry VIII） </p><p>
+约翰王（King John） </p><p>
+里查二世（Richard II） </p><p>
+里查三世（Richard III） </p><p>
+诗</p><p>
+十四行诗（The Sonnets） </p><p>
+爱人的怨诉（A Lover's Complaint）又译：情女怨 </p><p>
+鲁克丽丝失贞记（The Rape of Lucrece）又译：露克丽丝遭强暴记 </p><p>
+维纳斯和阿多尼斯（Venus and Adonis） </p><p>
+热情的朝圣者（The Passionate Pilgrim）又译：激情飘泊者 </p><p>
+凤凰和斑鸠（The Phoenix and the Turtle） </p><p>
+其它疑为莎士比亚的作品</p><p>
+托马斯·莫尔爵士（Sir Thomas More） </p><p>
+爱德华三世（Edward III） </p><p>
+挽歌（Funeral Elegy） </p>
+		</td>
+        </tr>
+        </tbody></table>
+	  </td>
+				
+				<div class="tab_content_aa tab_content_aa ">
+                                                        <div class="content tab_1" type="item" dd_name="热门作者" style="display: none;">
+                                        <div class="hot_author " name="m403762_pid5257_5244_t9099"><div class="con left" name="m403762_pid5257_5244_t9100"><div class="con introduction" name="m403762_pid5257_5244_t9101">
+    <ul class="list_aa " id="component_403762__5257_5244_5240__5240" ddt-area="5240" dd_name="作者介绍">
+                    <li class="line1 " nname="book-65152-9159_2-472762_1" ddt-pit="1" dd_name="1">
+                <span class="num_logo">1<span>st</span></span><a title="" class="img" href="http://product.dangdang.com/29199271.html" target="_blank"><img src="http://img60.ddimg.cn/topic_img/gys_0014951/DK_KFLT_20210402_145_145.jpg" alt=""></a><p class="author"><span class="author_t"></span><a href="http://product.dangdang.com/29199271.html" target="_blank">肯·福莱特（Ken&nbsp;Follett）</a></p><p class="detail"><span class="detail_t"></span>现象级畅销小说大师，英国皇家文学学会会员。
+1978年，凭借悬疑小说《针眼》获得爱伦·坡奖，2010年获得国际惊悚悬疑大师奖，2013年获得爱伦·坡终身大师奖。
+作品被译成33种语言在80多个国家出版，累计销量超1.7亿册。代表作有《巨人的陨落》《暗夜与黎明》等。"</p>            </li>
+                </ul>
+
+    </div><div class="con zuopin" name="m403762_pid5257_5244_t9102"><span>作品</span></div><div class="con author_books" name="m403762_pid5257_5244_t9103">
+    <ul class="list_aa " id="component_403762__5257_5244_5242__5242" ddt-area="5242" dd_name="作者作品">
+                    <li class="line1 " nname="book-65152-9159_2-472763_1" ddt-pit="1" dd_name="1">
+                <a title="暗夜与黎明" class="img" href="http://product.dangdang.com/29199271.html" target="_blank"><img src="http://img3m1.ddimg.cn/13/18/29199271-1_l_27.jpg" alt="暗夜与黎明"></a><p class="name" ddt-src="29199271"><a title="暗夜与黎明" href="http://product.dangdang.com/29199271.html" target="_blank">暗夜与黎明</a></p><p class="star"><span class="title"></span><span class="level"><span style="width: 88.2%;"></span></span></p><p class="price"><span class="rob"><span class="sign">¥</span><span class="num">118</span><span class="tail">.00</span></span><span class="price_r"><span class="sign">¥</span><span class="num">118</span><span class="tail">.00</span></span><span class="ebookprice_n"><span class="ebookprice_title">电子书</span><span class="sign">¥</span><span class="num">45</span><span class="tail">.99</span></span></p><div class="icon_pop"></div>            </li>
+                        <li class="line2 " nname="book-65152-9159_2-472763_2" ddt-pit="2" dd_name="2">
+                <a title="巨人的陨落" class="img" href="http://product.dangdang.com/23951294.html" target="_blank"><img src="http://img3m4.ddimg.cn/26/10/23951294-1_l_28.jpg" alt="巨人的陨落"></a><p class="name" ddt-src="23951294"><a title="巨人的陨落" href="http://product.dangdang.com/23951294.html" target="_blank" style=" ">巨人的陨落</a></p><p class="star"><span class="title"></span><span class="level"><span style="width: 98.2%;"></span></span></p><p class="price"><span class="rob"><span class="sign">¥</span><span class="num">129</span><span class="tail">.80</span></span><span class="price_r"><span class="sign">¥</span><span class="num">129</span><span class="tail">.80</span></span><span class="ebookprice_n"><span class="ebookprice_title">电子书</span><span class="sign">¥</span><span class="num">12</span><span class="tail">.99</span></span></p><div class="icon_pop"></div>            </li>
+                        <li class="line3 " nname="book-65152-9159_2-472763_3" ddt-pit="3" dd_name="3">
+                <a title="世界的凛冬" class="img" href="http://product.dangdang.com/24182882.html" target="_blank"><img src="http://img3m2.ddimg.cn/53/15/24182882-1_l_10.jpg" alt="世界的凛冬"></a><p class="name" ddt-src="24182882"><a title="世界的凛冬" href="http://product.dangdang.com/24182882.html" target="_blank" style=" ">世界的凛冬</a></p><p class="star"><span class="title"></span><span class="level"><span style="width: 98%;"></span></span></p><p class="price"><span class="rob"><span class="sign">¥</span><span class="num">47</span><span class="tail">.70</span></span><span class="price_r"><span class="sign">¥</span><span class="num">132</span><span class="tail">.00</span></span><span class="ebookprice_n"><span class="ebookprice_title">电子书</span><span class="sign">¥</span><span class="num">19</span><span class="tail">.99</span></span></p><div class="icon_pop"></div>            </li>
+                        <li class="line4 " nname="book-65152-9159_2-472763_4" ddt-pit="4" dd_name="4">
+                <a title="通宵小说大师肯·福莱特世纪三部曲（套装共9册）" class="img" href="http://product.dangdang.com/25077211.html" target="_blank"><img src="http://img3m1.ddimg.cn/16/17/25077211-1_l_13.jpg" alt="通宵小说大师肯·福莱特世纪三部曲（套装共9册）"></a><p class="name" ddt-src="25077211"><a title="通宵小说大师肯·福莱特世纪三部曲（套装共9册）" href="http://product.dangdang.com/25077211.html" target="_blank" style=" ">通宵小说大师肯·福莱特世纪三部曲（套装共</a></p><p class="star"><span class="title"></span><span class="level"><span style="width: 98.2%;"></span></span></p><p class="price"><span class="rob"><span class="sign">¥</span><span class="num">429</span><span class="tail">.80</span></span><span class="price_r"><span class="sign">¥</span><span class="num">429</span><span class="tail">.80</span></span><span class="ebookprice_n"><span class="ebookprice_title">电子书</span><span class="sign">¥</span><span class="num">49</span><span class="tail">.99</span></span></p><div class="icon_pop"></div>            </li>
+                </ul>
+
+    </div></div><div class="con right" name="m403762_pid5257_5244_t9104">
+    <ul class="list_aa " id="component_403762__5257_5244_5243__5243" ddt-area="5243" dd_name="作者列表">
+                    <li class="line1 " nname="book-65152-9159_2-472764_1" ddt-pit="1" dd_name="1">
+                <span class="number num1">1</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%D3%E0%BB%AA&amp;act=input" target="_blank">余华</a></p>            </li>
+                        <li class="line2 " nname="book-65152-9159_2-472764_2" ddt-pit="2" dd_name="2">
+                <span class="number num2">2</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%D6%A3%D4%A8%BD%E0&amp;act=input" target="_blank">郑渊洁</a></p>            </li>
+                        <li class="line3 " nname="book-65152-9159_2-472764_3" ddt-pit="3" dd_name="3">
+                <span class="number num3">3</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%D3%E0%C7%EF%D3%EA&amp;act=input" target="_blank">余秋雨</a></p>            </li>
+                        <li class="line4 " nname="book-65152-9159_2-472764_4" ddt-pit="4" dd_name="4">
+                <span class="number num4">4</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%B2%DC%CE%C4%D0%F9&amp;act=input" target="_blank">曹文轩</a></p>            </li>
+                        <li class="line5 " nname="book-65152-9159_2-472764_5" ddt-pit="5" dd_name="5">
+                <span class="number num5">5</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%C4%AA%D1%D4&amp;act=input" target="_blank">莫言</a></p>            </li>
+                        <li class="line6 " nname="book-65152-9159_2-472764_6" ddt-pit="6" dd_name="6">
+                <span class="number num6">6</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%B4%E5%C9%CF%B4%BA%CA%F7&amp;act=input" target="_blank">村上春树</a></p>            </li>
+                        <li class="line7 " nname="book-65152-9159_2-472764_7" ddt-pit="7" dd_name="7">
+                <span class="number num7">7</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%B6%AB%D2%B0%B9%E7%CE%E1&amp;act=input" target="_blank">东野圭吾</a></p>            </li>
+                        <li class="line8 " nname="book-65152-9159_2-472764_8" ddt-pit="8" dd_name="8">
+                <span class="number num8">8</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%B4%F3%B1%F9&amp;act=input" target="_blank">大冰</a></p>            </li>
+                        <li class="line9 " nname="book-65152-9159_2-472764_9" ddt-pit="9" dd_name="9">
+                <span class="number num9">9</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%D5%C5%BC%CE%BC%D1&amp;act=input" target="_blank">张嘉佳</a></p>            </li>
+                        <li class="line10 " nname="book-65152-9159_2-472764_10" ddt-pit="10" dd_name="10">
+                <span class="number num10">10</span><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%C9%F2%CA%AF%CF%AA&amp;act=input" target="_blank">沈石溪</a></p>            </li>
+                </ul>
+
+    </div></div>                                    </div>
+                                                                        <div class="content tab_2" type="item" dd_name="名人堂" style="display: block;"><div class="hot_author23 " name="m403762_pid5257_5254_t9105"><div class="con left" name="m403762_pid5257_5254_t9106">
+    <ul class="list_aa " id="component_403762__5257_5254_5246__5246" ddt-area="5246" dd_name="作者简介">
+                    <li class="line1 " nname="book-65152-9159_2-472765_1" ddt-pit="1" dd_name="1">
+                <a title="" class="img" href="http://search.dangdang.com/?key=%B2%CC%C0%BD&amp;act=input" target="_blank"><img src="http://img60.ddimg.cn/topic_img/gys_0015115/2021.3.9mrtcailan145x145.jpg" alt=""></a><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%B2%CC%C0%BD&amp;act=input" target="_blank">蔡澜</a></p><p class="detail"><span class="detail_t"></span>"蔡澜，1941年生于新加坡，祖籍广东潮州，现居香港。作家、生活家、美食家、电影人、主持人。《舌尖上的中国》总顾问，《新周刊》年度生活家。与金庸、倪匡、黄霑并称“香港四大才子”。&nbsp;
+向来潇洒，过得任性。最会吃，最懂喝，最能玩，是一个真正把人生活透</p>            </li>
+                </ul>
+
+    </div><div class="con right" name="m403762_pid5257_5254_t9107"><div class="con show_book" name="m403762_pid5257_5254_t9108">
+    <ul class="list_aa " id="component_403762__5257_5254_5247__5247" ddt-area="5247" dd_name="主推书籍">
+                    <li class="line1 " nname="book-65152-9159_2-472766_1" ddt-pit="1" dd_name="1">
+                <a title="人间好玩/蔡澜" class="img" href="http://product.dangdang.com/29197729.html" target="_blank"><img src="http://img3m9.ddimg.cn/55/30/29197729-1_l_14.jpg" alt="人间好玩/蔡澜"></a><p class="name" ddt-src="29197729"><a title="人间好玩/蔡澜" href="http://product.dangdang.com/29197729.html" target="_blank" style=" ">人间好玩/蔡澜</a></p><p class="star"><span class="title"></span><span class="level"><span style="width: 99.6%;"></span></span></p><p class="price"><span class="rob"><span class="sign">¥</span><span class="num">24</span><span class="tail">.00</span></span><span class="price_r"><span class="sign">¥</span><span class="num">48</span><span class="tail">.00</span></span><span class="ebookprice_n"><span class="sign">¥</span><span class="num">24</span><span class="tail">.00</span></span></p><p class="detail"><span class="detail_t"></span>蔡澜为人幽默风雅，以鲜活、生动的文字讲述他的所见所闻，与读者分享他的识见。他说：“为了喜欢写而写，才是一个真正的开端。除了文字之功，还要够真、够坦白。”一篇篇的小品文，真切动人，令人感到趣味盎然，惭惭地，便会感受到一点一滴的生活哲学从文字中渗出来。这本《人间好玩》是蔡先生的*散文集，文章包含了蔡澜先生“活出人间好玩样子”的“奥妙”所在。书中谈人间的“好物”“好吃”“好玩”与“有情”，篇幅短小，一朵花里见世界，有心人自会从蔡先生这本文字里感受到“活出人间好玩样子”的智慧，也有可能帮助到有心人找到通往更好更通达生活的路。</p><div class="icon_pop"></div>            </li>
+                </ul>
+
+    </div><div class="con other_books" name="m403762_pid5257_5254_t9109"><div class="con " name="m403762_pid5257_5254_t9110">该作者的其他作品：
+    <ul class="list_aa " id="component_403762__5257_5254_5249__5249" ddt-area="5249" dd_name="该作者的其他作品">
+                    <li class="line1 " nname="book-65152-9159_2-472767_1" ddt-pit="1" dd_name="1">
+                <p class="name" ddt-src="410279350"><a title="蔡澜人生智慧三部曲" href="http://product.dangdang.com/410279350.html" target="_blank">蔡澜人生智慧三部曲</a></p>            </li>
+                        <li class="line2 " nname="book-65152-9159_2-472767_2" ddt-pit="2" dd_name="2">
+                <p class="name" ddt-src="26509893"><a title="我喜欢人生快活的样子" href="http://product.dangdang.com/26509893.html" target="_blank">我喜欢人生快活的样子</a></p>            </li>
+                        <li class="line3 " nname="book-65152-9159_2-472767_3" ddt-pit="3" dd_name="3">
+                <p class="name" ddt-src="28516708"><a title="学做妙人" href="http://product.dangdang.com/28516708.html" target="_blank">学做妙人</a></p>            </li>
+                        <li class="line4 " nname="book-65152-9159_2-472767_4" ddt-pit="4" dd_name="4">
+                <p class="name" ddt-src="25290597"><a title="随心随意去生活" href="http://product.dangdang.com/25290597.html" target="_blank">随心随意去生活</a></p>            </li>
+                </ul>
+
+    </div><div class="con " name="m403762_pid5257_5254_t9111">该作者推荐的图书：
+    <ul class="list_aa " id="component_403762__5257_5254_5251__5251" ddt-area="5251" dd_name="该作者推荐的图书">
+                    <li class="line1 " nname="book-65152-9159_2-472768_1" ddt-pit="1" dd_name="1">
+                <p class="name" ddt-src="27900880"><a title="游荡集" href="http://product.dangdang.com/27900880.html" target="_blank">游荡集</a></p>            </li>
+                        <li class="line2 " nname="book-65152-9159_2-472768_2" ddt-pit="2" dd_name="2">
+                <p class="name" ddt-src="29167222"><a title="赛雷三分钟漫画中国史（全五册）" href="http://product.dangdang.com/29167222.html" target="_blank">赛雷三分钟漫画中国史（全五册）</a></p>            </li>
+                        <li class="line3 " nname="book-65152-9159_2-472768_3" ddt-pit="3" dd_name="3">
+                <p class="name" ddt-src="28529308"><a title="斯坦福极简经济学" href="http://product.dangdang.com/28529308.html" target="_blank">斯坦福极简经济学</a></p>            </li>
+                </ul>
+
+    </div><div class="con " name="m403762_pid5257_5254_t9112">喜欢该作者还喜欢：
+    <ul class="list_aa " id="component_403762__5257_5254_5253__5253" ddt-area="5253" dd_name="喜欢该作者还喜欢">
+                    <li class="line1 " nname="book-65152-9159_2-472769_1" ddt-pit="1" dd_name="1">
+                <p class="name" ddt-src="26916233"><a title="战争哀歌" href="http://product.dangdang.com/26916233.html" target="_blank">战争哀歌</a></p>            </li>
+                        <li class="line2 " nname="book-65152-9159_2-472769_2" ddt-pit="2" dd_name="2">
+                <p class="name" ddt-src="28524524"><a title="吴哥之美" href="http://product.dangdang.com/28524524.html" target="_blank">吴哥之美</a></p>            </li>
+                </ul>
+
+    </div></div></div></div></div>   
+                                                                        <div class="content tab_3" type="item" dd_name="新锐作家" style="display: none;"><div class="hot_author23 " name="m403762_pid5257_5256_t9105"><div class="con left" name="m403762_pid5257_5256_t9106">
+    <ul class="list_aa " id="component_403762__5257_5256_5246__5246" ddt-area="5246" dd_name="作者简介">
+                    <li class="line1 " nname="book-65152-9159_2-472770_1" ddt-pit="1" dd_name="1">
+                <a title="" class="img" href="http://search.dangdang.com/?key=%D1%CF%B2%AE%BE%FB&amp;act=input" target="_blank"><img src="http://img55.ddimg.cn/9002780153298125.jpg" alt=""></a><p class="author"><span class="author_t"></span><a href="http://search.dangdang.com/?key=%D1%CF%B2%AE%BE%FB&amp;act=input" target="_blank">严伯钧</a></p><p class="detail"><span class="detail_t"></span>严伯钧，科普作家、艺术研究者，全国物理竞赛金牌获得者，曾于美国布朗大学攻读物理学博士。
+抖音头部知识内容博主，抖音号“严伯钧”粉丝数超300W，科普视频全平台播放数迂10亿。2018年被《新周刊》评选为“十大网红网络导师”之一，与马东、薛兆丰等名宿并</p>            </li>
+                </ul>
+
+    </div><div class="con right" name="m403762_pid5257_5256_t9107"><div class="con show_book" name="m403762_pid5257_5256_t9108">
+    <ul class="list_aa " id="component_403762__5257_5256_5247__5247" ddt-area="5247" dd_name="主推书籍">
+                    <li class="line1 " nname="book-65152-9159_2-472771_1" ddt-pit="1" dd_name="1">
+                <a title="了不起的物理" class="img" href="http://product.dangdang.com/29202857.html" target="_blank"><img src="http://img3m7.ddimg.cn/35/15/29202857-1_l_25.jpg" alt="了不起的物理"></a><p class="name" ddt-src="29202857"><a title="了不起的物理" href="http://product.dangdang.com/29202857.html" target="_blank" style=" ">了不起的物理</a></p><p class="star"><span class="title"></span><span class="level"><span style="width: 86%;"></span></span></p><p class="price"><span class="rob"><span class="sign">¥</span><span class="num">46</span><span class="tail">.80</span></span><span class="price_r"><span class="sign">¥</span><span class="num">65</span><span class="tail">.00</span></span><span class="ebookprice_n"><span class="sign">¥</span><span class="num">24</span><span class="tail">.99</span></span></p><p class="detail"><span class="detail_t"></span>本书精选100个有趣的物理话题为你深入讲解。有生活中的物理学和黑科技，如5G、裸眼3D、超级高铁；有广阔如宇宙的物理学原理，如引力波、黑洞和宇宙大爆炸理论；还有微小如量子的内涵哲理，如薛定谔的猫、量子纠缠和不确定性原理；更有对重要物理学定律的总结，像能量守恒定律、爱因斯坦方程和熵增原理。除了普及具体的物理学知识，这本书可以透过物理学中的逻辑，让你感受到其中思维的魅力和美感。只要你对这个世界还有一丝好奇，那这本书里一定有你想要的答案。</p><div class="icon_pop"></div>            </li>
+                </ul>
+
+    </div><div class="con other_books" name="m403762_pid5257_5256_t9109"><div class="con " name="m403762_pid5257_5256_t9110">该作者的其他作品：
+    <ul class="list_aa " id="component_403762__5257_5256_5249__5249" ddt-area="5249" dd_name="该作者的其他作品">
+                    <li class="line1 " nname="book-65152-9159_2-472772_1" ddt-pit="1" dd_name="1">
+                <p class="name" ddt-src="28534343"><a title="六极物理" href="http://product.dangdang.com/28534343.html" target="_blank">六极物理</a></p>            </li>
+                        <li class="line2 " nname="book-65152-9159_2-472772_2" ddt-pit="2" dd_name="2">
+                <p class="name" ddt-src="29216470"><a title="对立之美：西方艺术500年" href="http://product.dangdang.com/29216470.html" target="_blank">对立之美：西方艺术500年</a></p>            </li>
+                </ul>
+
+    </div><div class="con " name="m403762_pid5257_5256_t9111">该作者推荐的图书：
+    <ul class="list_aa " id="component_403762__5257_5256_5251__5251" ddt-area="5251" dd_name="该作者推荐的图书">
+                    <li class="line1 " nname="book-65152-9159_2-472773_1" ddt-pit="1" dd_name="1">
+                <p class="name" ddt-src="27880745"><a title="上帝掷骰子吗？：量子物理史话：升级版" href="http://product.dangdang.com/27880745.html" target="_blank">上帝掷骰子吗？：量子物理史话：升级版</a></p>            </li>
+                        <li class="line2 " nname="book-65152-9159_2-472773_2" ddt-pit="2" dd_name="2">
+                <p class="name" ddt-src="26908333"><a title="从一到无穷大" href="http://product.dangdang.com/26908333.html" target="_blank">从一到无穷大</a></p>            </li>
+                        <li class="line3 " nname="book-65152-9159_2-472773_3" ddt-pit="3" dd_name="3">
+                <p class="name" ddt-src="28529306"><a title="赛雷三分钟漫画：病毒、细菌与人类" href="http://product.dangdang.com/28529306.html" target="_blank">赛雷三分钟漫画：病毒、细菌与人类</a></p>            </li>
+                        <li class="line4 " nname="book-65152-9159_2-472773_4" ddt-pit="4" dd_name="4">
+                <p class="name" ddt-src="29160798"><a title="太阳系简史" href="http://product.dangdang.com/29160798.html" target="_blank">太阳系简史</a></p>            </li>
+                </ul>
+
+    </div><div class="con " name="m403762_pid5257_5256_t9112">喜欢该作者还喜欢：
+    <ul class="list_aa " id="component_403762__5257_5256_5253__5253" ddt-area="5253" dd_name="喜欢该作者还喜欢">
+                    <li class="line1 " nname="book-65152-9159_2-472774_1" ddt-pit="1" dd_name="1">
+                <p class="name" ddt-src="24156408"><a title="画家之眼" href="http://product.dangdang.com/24156408.html" target="_blank">画家之眼</a></p>            </li>
+                        <li class="line2 " nname="book-65152-9159_2-472774_2" ddt-pit="2" dd_name="2">
+                <p class="name" ddt-src="29204254"><a title="自控力" href="http://product.dangdang.com/29204254.html" target="_blank">自控力</a></p>            </li>
+                        <li class="line3 " nname="book-65152-9159_2-472774_3" ddt-pit="3" dd_name="3">
+                <p class="name" ddt-src="25242482"><a title="狂人日记" href="http://product.dangdang.com/25242482.html" target="_blank">狂人日记</a></p>            </li>
+                        <li class="line4 " nname="book-65152-9159_2-472774_4" ddt-pit="4" dd_name="4">
+                <p class="name" ddt-src="29161964"><a title="冯唐成事心法" href="http://product.dangdang.com/29161964.html" target="_blank">冯唐成事心法</a></p>            </li>
+                </ul>
+
+    </div></div></div></div></div>   
+                                    
+			
+                </div>
+                <h1>其他著名作者：</h1>
+              <a href="http://www.ttpaihang.com/vote/rank.php?voteid=1436"><h2 style="text-align: end;">世界著名作家排行榜中榜</h2></a>  
+				<ul class="mui-table-view mui-table-view-chevron  book">
+				<!--<iframe style=" width: 100%;height:600px;"  src="book.html"></iframe>-->
+				
+			</div>
+			<div style="padding-bottom: inherit;" id="tabbar-with-contact" class="mui-control-content">
+				<div class="title">书友交流中心 </div>
+				电话：110     QQ群：3456823456   
+				<ul class="mui-table-view mui-table-view-striped mui-table-view-condensed">
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img style="width: 100%;height: 50%;" src="img/yewenjie.jpg">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">叶文洁</h4>
+									<span class="oa-contact-position mui-h6">董事长</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									yewenjie@sina.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img  style="width: 100%;height: 50%;"src="img/santi.jpg">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">三体</h4>
+									<span class="oa-contact-position mui-h6">总经理</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									aaa@163.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img style="width: 100%;height: 50%;" src="img/luoji.jpg">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">罗辑</h4>
+									<span class="oa-contact-position mui-h6">员工</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									luoji@126.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img  style="width: 100%;height: 50%;"src="img/yuntianming.jpg">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">云天明</h4>
+									<span class="oa-contact-position mui-h6">员工</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									ytm@163.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+				<li class="mui-table-view-cell">
+					<div class="mui-slider-cell">
+						<div class="oa-contact-cell mui-table">
+							<div class="oa-contact-avatar mui-table-cell">
+								<img style="width: 100%;height: 50%;"src="img/shiqiang.jpg">
+							</div>
+							<div class="oa-contact-content mui-table-cell">
+								<div class="mui-clearfix">
+									<h4 class="oa-contact-name">史强</h4>
+									<span class="oa-contact-position mui-h6">员工</span>
+								</div>
+								<p class="oa-contact-email mui-h6">
+									shiqiang@gmail.com
+								</p>
+							</div>
+						</div>
+					</div>
+				</li>
+			</ul>
+			</div>
+			
+			<div id="tabbar-with-map" class="mui-control-content">
+				<div class="title"></div>
+				<ul class="mui-table-view">
+					<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="mui-icon mui-icon-contact"></span>
+						<span class="mui-tab-label">  我的账户</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="mui-icon-extra mui-icon-extra-notice"></span>
+						<span class="mui-tab-label">  消息通知</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="mui-icon-extra mui-icon-extra-heart"></span>
+						<span class="mui-tab-label">我的收藏</span>
+					</a>
+				</li>
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="mui-icon mui-icon-help"></span>
+						<span class="mui-tab-label">帮助与客服</span>
+					</a>
+				</li>
+			
+			
+				<li class="mui-table-view-cell">
+					<a class="mui-navigate-right">
+						<span class="mui-icon mui-icon-gear"></span>
+						<span class="mui-tab-label">设置</span>
+					</a>
+				</li>
+		
+			
+				<li class="mui-table-view-cell">
+				<a class="mui-navigate-right">
+						<span class="mui-icon-extra mui-icon-extra-custom"></span>
+						<span class="mui-tab-label">在线人工客服</span>
+					</a>
+				</li>
+		
+			
+				<li class="mui-table-view-cell">
+					<a style="text-align: center;color: #FF3B30;">
+						退出登录
+					</a>
+				</li>
+			</ul>
+			
+			</div>
+		</div>
+	</body>
+</html>
